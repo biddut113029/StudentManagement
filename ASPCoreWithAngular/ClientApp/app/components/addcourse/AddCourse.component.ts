@@ -16,12 +16,22 @@ export class createcourse implements OnInit {
     id: number;
     errorMessage: any;
 
+    nameList: any;  
+    data:any; 
+    nameId:number; 
+
+
+
+
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
         private _studentService: CourseService, private _router: Router) {
         if (this._avRoute.snapshot.params["id"]) {
             this.id = this._avRoute.snapshot.params["id"];
         }
 
+        this._studentService.getCourses().subscribe(
+            data => this.nameList = data
+        )
         this.courseForm = this._fb.group({
             id: 0,
             name: ['', [Validators.required]],
@@ -32,6 +42,10 @@ export class createcourse implements OnInit {
     }
 
     ngOnInit() {
+
+     
+
+
         if (this.id > 0) {
             this.title = "Edit";
             this._studentService.getCourseById(this.id)
@@ -39,6 +53,8 @@ export class createcourse implements OnInit {
                 , error => this.errorMessage = error);
         }
     }
+
+   
 
     save() {
 

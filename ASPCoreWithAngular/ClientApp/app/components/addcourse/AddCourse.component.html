@@ -20,6 +20,13 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <select >
+                <option value="0">--All--</option>
+                <option *ngFor="let k of nameList" value= {{k.id}}  >
+                    {{k.name}}
+                </option>
+            </select>
+
         </div>
         <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
             Gender is required

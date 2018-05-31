@@ -8,38 +8,44 @@
     <a [routerLink]="['/register-student']">Create New</a>
 </p>
 
+<select>
+    <option value="0">--All--</option>
+    <option *ngFor="let k of stdList" value={{k.id}}>
+        {{k.name}}
+    </option>
+</select>
 
 <table class="table table-striped" [mfData]="stdList" #mf="mfDataTable"
        [mfRowsOnPage]="10" [(mfSortBy)]="ID" [(mfSortOrder)]="asc">
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Department</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let std of stdList">
-                <td>{{ std.id }}</td>
-                <td>{{ std.name }}</td>
-                <td>{{ std.gender }}</td>
-                <td>{{ std.department }}</td>
-                <td>{{ std.city }}</td>
-                <td>
-                <td>
-                    <a [routerLink]="['/student/edit/', std.id]">Edit</a> |
-                    <a [routerLink]="" (click)="delete(std.id)">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="5">
-                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of stdList">
+            <td>{{ std.id }}</td>
+            <td>{{ std.name }}</td>
+            <td>{{ std.gender }}</td>
+            <td>{{ std.department }}</td>
+            <td>{{ std.city }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/student/edit/', std.id]">Edit</a> |
+                <a [routerLink]="" (click)="delete(std.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
