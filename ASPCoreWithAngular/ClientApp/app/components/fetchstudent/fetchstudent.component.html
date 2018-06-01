@@ -11,12 +11,12 @@
 <select>
     <option value="0">--All--</option>
     <option *ngFor="let k of stdList" value={{k.id}}>
-        {{k.name}}
+        {{k.id}}
     </option>
 </select>
 
 <table class="table table-striped" [mfData]="stdList" #mf="mfDataTable"
-       [mfRowsOnPage]="10" [(mfSortBy)]="ID" [(mfSortOrder)]="asc">
+       [mfRowsOnPage]="10" [(mfSortBy)]="id" [(mfSortOrder)]="asc">
 
     <thead>
         <tr>

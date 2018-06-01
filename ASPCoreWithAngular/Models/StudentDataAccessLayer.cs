@@ -36,6 +36,12 @@ namespace ASPCoreWithAngular.Models
                         Student.Department = rdr["Department"].ToString();
                         Student.City = rdr["City"].ToString();
 
+                        Student.LastName = rdr["LastName"].ToString();
+                        Student.FatherName = rdr["FatherName"].ToString();
+                        Student.MotherName = rdr["MotherName"].ToString();
+                        Student.ContactNo = rdr["ContactNo"].ToString();
+                        Student.Email = rdr["Email"].ToString();
+
                         lstStudent.Add(Student);
                     }
                     con.Close();
@@ -62,6 +68,13 @@ namespace ASPCoreWithAngular.Models
                     cmd.Parameters.AddWithValue("@Gender", Student.Gender);
                     cmd.Parameters.AddWithValue("@Department", Student.Department);
                     cmd.Parameters.AddWithValue("@City", Student.City);
+
+
+                    cmd.Parameters.AddWithValue("@LastName", Student.LastName);
+                    cmd.Parameters.AddWithValue("@FatherName", Student.FatherName);
+                    cmd.Parameters.AddWithValue("@MotherName", Student.MotherName);
+                    cmd.Parameters.AddWithValue("@ContactNo", Student.ContactNo);
+                    cmd.Parameters.AddWithValue("@Email", Student.Email);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -90,6 +103,14 @@ namespace ASPCoreWithAngular.Models
                     cmd.Parameters.AddWithValue("@Gender", Student.Gender);
                     cmd.Parameters.AddWithValue("@Department", Student.Department);
                     cmd.Parameters.AddWithValue("@City", Student.City);
+
+                    cmd.Parameters.AddWithValue("@LastName", Student.LastName);
+                    cmd.Parameters.AddWithValue("@FatherName", Student.FatherName);
+                    cmd.Parameters.AddWithValue("@MotherName", Student.MotherName);
+                    cmd.Parameters.AddWithValue("@ContactNo", Student.ContactNo);
+                    cmd.Parameters.AddWithValue("@Email", Student.Email);
+
+
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -125,6 +146,14 @@ namespace ASPCoreWithAngular.Models
                         Student.Gender = rdr["Gender"].ToString();
                         Student.Department = rdr["Department"].ToString();
                         Student.City = rdr["City"].ToString();
+
+                        Student.LastName = rdr["LastName"].ToString();
+                        Student.FatherName = rdr["FatherName"].ToString();
+                        Student.MotherName = rdr["MotherName"].ToString();
+                        Student.ContactNo = rdr["ContactNo"].ToString();
+                        Student.Email = rdr["Email"].ToString();
+
+
                     }
                 }
                 return Student;

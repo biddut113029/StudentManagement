@@ -46,4 +46,10 @@ interface StudentData {
     gender: string;
     department: string;
     city: string;
+
+    lastName: string;
+    fatherName: string;
+    motherName: string;
+    contactNo: string;
+    email: string;
 }

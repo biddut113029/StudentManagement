@@ -27,7 +27,12 @@ export class createstudent implements OnInit {
             name: ['', [Validators.required]],
             gender: ['', [Validators.required]],
             department: ['', [Validators.required]],
-            city: ['', [Validators.required]]
+            city: ['', [Validators.required]],
+            lastName: ['', [Validators.required]],
+            fatherName: ['', [Validators.required]],
+            motherName: ['', [Validators.required]],
+            contactNo: ['', [Validators.required]],
+            email: ['', [Validators.required]]
         })
     }
 
@@ -66,6 +71,12 @@ export class createstudent implements OnInit {
 
     get name() { return this.studentForm.get('name'); }
     get gender() { return this.studentForm.get('gender'); }
-    get department() { return this.studentForm.get('department'); }
     get city() { return this.studentForm.get('city'); }
+    get department() { return this.studentForm.get('department'); }
+    get lastName() { return this.studentForm.get('lastName'); }
+    get fatherName() { return this.studentForm.get('fatherName'); }
+    get motherName() { return this.studentForm.get('motherName'); }
+    get contactNo() { return this.studentForm.get('contactNo'); }
+    get email() { return this.studentForm.get('email'); }
+   
 }
