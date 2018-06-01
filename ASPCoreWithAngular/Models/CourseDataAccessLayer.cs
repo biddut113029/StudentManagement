@@ -12,15 +12,15 @@ namespace ASPCoreWithAngular.Models
         string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myDB;Data Source=DESKTOP-7V61I4R";
 
         //To View all Courses details
-        public IEnumerable<Course> GetAllCourses()
+        public IEnumerable<CourseName> GetAllCourses()
         {
             try
             {
-                List<Course> lstCourse = new List<Course>();
+                List<CourseName> lstCourseName = new List<CourseName>();
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("spGetAllCourses", con);
+                    SqlCommand cmd = new SqlCommand("spGetAllCourseNames", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();
@@ -28,19 +28,17 @@ namespace ASPCoreWithAngular.Models
 
                     while (rdr.Read())
                     {
-                        Course Course = new Course();
+                        CourseName CourseName = new CourseName();
 
-                        Course.ID = Convert.ToInt32(rdr["CourseID"]);
-                        Course.Name = rdr["Name"].ToString();
-                        Course.Gender = rdr["Gender"].ToString();
-                        Course.Department = rdr["Department"].ToString();
-                        Course.City = rdr["City"].ToString();
-
-                        lstCourse.Add(Course);
+                        CourseName.ID = Convert.ToInt32(rdr["ID"]);
+                        CourseName.Code = rdr["Code"].ToString();
+                        CourseName.Name = rdr["Name"].ToString();
+                        CourseName.Credit = rdr["Credit"].ToString();
+                        lstCourseName.Add(CourseName);
                     }
                     con.Close();
                 }
-                return lstCourse;
+                return lstCourseName;
             }
             catch
             {
@@ -62,6 +60,9 @@ namespace ASPCoreWithAngular.Models
                     cmd.Parameters.AddWithValue("@Gender", Course.Gender);
                     cmd.Parameters.AddWithValue("@Department", Course.Department);
                     cmd.Parameters.AddWithValue("@City", Course.City);
+                    cmd.Parameters.AddWithValue("@CourseID", Course.CourseID);
+                    cmd.Parameters.AddWithValue("@StudentID", Course.StudentID);
+
 
                     con.Open();
                     cmd.ExecuteNonQuery();

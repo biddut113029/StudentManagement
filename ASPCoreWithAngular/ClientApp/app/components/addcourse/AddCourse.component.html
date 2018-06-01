@@ -16,16 +16,12 @@
         <label class="control-label col-md-12" for="Gender">Gender</label>
         <div class="col-md-4">
             <select class="form-control" data-val="true" formControlName="gender">
-                <option value="">-- Select Gender --</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <select >
                 <option value="0">--All--</option>
-                <option *ngFor="let k of nameList" value= {{k.id}}  >
+                <option *ngFor="let k of nameList" value={{k.id}}>
                     {{k.name}}
-                </option>
+                </option>>
             </select>
+           
 
         </div>
         <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">

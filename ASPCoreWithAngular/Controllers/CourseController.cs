@@ -15,7 +15,7 @@ namespace ASPCoreWithAngular.Controllers
 
         [HttpGet("[action]")]
         [Route("api/Course/Index")]
-        public IEnumerable<Course> Index()
+        public IEnumerable<CourseName> Index()
         {
             return objCourse.GetAllCourses();
         }
