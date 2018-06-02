@@ -4,6 +4,7 @@ import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angula
 import { Router, ActivatedRoute } from '@angular/router';
 import { FetchStudentComponent } from '../fetchstudent/fetchstudent.component';
 import { CourseService } from '../../services/crsservice.service';
+import { StudentService } from '../../services/stdservice.service';
 
 @Component({
     selector: 'createcourse',
@@ -17,21 +18,30 @@ export class createcourse implements OnInit {
     errorMessage: any;
 
     nameList: any;  
-    data:any; 
+    stdList: any;
+    data: any;   
+   
     nameId:number; 
 
 
 
 
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
-        private _studentService: CourseService, private _router: Router) {
+        private _studentService: CourseService, private _takeStudentService: StudentService, private _router: Router) {
         if (this._avRoute.snapshot.params["id"]) {
             this.id = this._avRoute.snapshot.params["id"];
         }
 
+   
         this._studentService.getCourses().subscribe(
             data => this.nameList = data
         )
+        this._takeStudentService.getStudents().subscribe(
+            data => this.stdList = data
+        )
+     
+
+   
         this.courseForm = this._fb.group({
             id: 0,
             name: ['', [Validators.required]],
