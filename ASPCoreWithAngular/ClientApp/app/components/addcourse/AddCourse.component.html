@@ -3,20 +3,12 @@
 <hr />
 
 <form [formGroup]="courseForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
-    <div class="form-group row">
-        <label class=" control-label col-md-12">Name</label>
-        <div class="col-md-4">
-            <input class="form-control" type="text" formControlName="name">
-        </div>
-        <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
-            Name is required.
-        </span>
-    </div>
+
 
     <div class="form-group row">
-        <label class="control-label col-md-12" for="department">Course</label>
+        <label class="control-label col-md-12" for="student">Course</label>
         <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="department">
+            <select class="form-control" data-val="true" formControlName="student">
                 <option value="0">--All--</option>
                 <option *ngFor="let k of stdList" value={{k.id}}>
                     {{k.name}}
@@ -25,15 +17,15 @@
 
 
         </div>
-        <span class="text-danger" *ngIf="department.invalid && formDir.submitted">
+        <span class="text-danger" *ngIf="student.invalid && formDir.submitted">
             departmentr is required
         </span>
     </div>
 
     <div class="form-group row">
-        <label class="control-label col-md-12" for="Gender">Course</label>
+        <label class="control-label col-md-12" for="course">Course</label>
         <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="gender">
+            <select class="form-control" data-val="true" formControlName="course">
                 <option value="0">--All--</option>
                 <option *ngFor="let k of nameList" value={{k.id}}>
                     {{k.name}}
@@ -42,7 +34,7 @@
 
 
         </div>
-        <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
+        <span class="text-danger" *ngIf="course.invalid && formDir.submitted">
             Gender is required
         </span>
     </div>
@@ -58,6 +50,16 @@
             City is required
         </span>
     </div>
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="name">
+        </div>
+        <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+            Name is required.
+        </span>
+    </div>
+
     <div class="form-group">
         <button type="submit" class="btn btn-default">Save</button>
         <button class="btn" (click)="cancel()">Cancel</button>

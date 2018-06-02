@@ -57,8 +57,8 @@ namespace ASPCoreWithAngular.Models
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@Name", Course.Name);
-                    cmd.Parameters.AddWithValue("@Gender", Course.Gender);
-                    cmd.Parameters.AddWithValue("@Department", Course.Department);
+                    cmd.Parameters.AddWithValue("@Gender", Course.course);
+                    cmd.Parameters.AddWithValue("@Department", Course.student);
                     cmd.Parameters.AddWithValue("@City", Course.City);
                     cmd.Parameters.AddWithValue("@CourseID", Course.CourseID);
                     cmd.Parameters.AddWithValue("@StudentID", Course.StudentID);
@@ -88,8 +88,8 @@ namespace ASPCoreWithAngular.Models
 
                     cmd.Parameters.AddWithValue("@CrsId", Course.ID);
                     cmd.Parameters.AddWithValue("@Name", Course.Name);
-                    cmd.Parameters.AddWithValue("@Gender", Course.Gender);
-                    cmd.Parameters.AddWithValue("@Department", Course.Department);
+                    cmd.Parameters.AddWithValue("@Gender", Course.course);
+                    cmd.Parameters.AddWithValue("@Department", Course.student);
                     cmd.Parameters.AddWithValue("@City", Course.City);
 
                     con.Open();
@@ -123,8 +123,8 @@ namespace ASPCoreWithAngular.Models
                     {
                         Course.ID = Convert.ToInt32(rdr["CourseID"]);
                         Course.Name = rdr["Name"].ToString();
-                        Course.Gender = rdr["Gender"].ToString();
-                        Course.Department = rdr["Department"].ToString();
+                        Course.course = rdr["Gender"].ToString();
+                        Course.student = rdr["Department"].ToString();
                         Course.City = rdr["City"].ToString();
                     }
                 }

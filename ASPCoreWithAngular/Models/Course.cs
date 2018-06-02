@@ -11,9 +11,9 @@ namespace ASPCoreWithAngular.Models
 
         public string Name { get; set; }
 
-        public string Gender { get; set; }
+        public string course{ get; set; }
 
-        public string Department { get; set; }
+        public string student { get; set; }
 
         public string City { get; set; }
 
