@@ -1,111 +1,114 @@
-<h1>{{title}}</h1>
-<h3>Student</h3>
+<h1>{{title}} new Student</h1>
+
 <hr />
+<div >
+    <form [formGroup]="studentForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
-<form [formGroup]="studentForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
-    <div class="col-md-6 form-group">
-      
-        <div class="form-group row">
-            <label class=" control-label col-md-3">First Name</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="name">
-            </div>
-            <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
-                Name is required.
-            </span>
-        </div>
-        <div class="form-group row">
-            <label class=" control-label col-md-3">Last Name</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="lastName">
-            </div>
-            <span class="text-danger" *ngIf="lastName.invalid && formDir.submitted">
-                Last Name is required.
-            </span>
-        </div>
-        <div class="form-group row">
-            <label class=" control-label col-md-3"> Father Name</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="fatherName">
-            </div>
-            <span class="text-danger" *ngIf="fatherName.invalid && formDir.submitted">
-                Father Name is required.
-            </span>
-        </div>
+        <div class="col-md-6 form-group" style="background-color: #f2f2f2; border-radius: 5px; padding: 20px;">
 
-        <div class="form-group row">
-            <label class=" control-label col-md-3"> Mother Name</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="motherName">
+            <div class="form-group row">
+                <label class=" control-label col-md-3">First Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="name">
+                </div>
+                <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+                    Name is required.
+                </span>
             </div>
-            <span class="text-danger" *ngIf="motherName.invalid && formDir.submitted">
-                Mother Name is required.
-            </span>
-        </div>
+            <div class="form-group row">
+                <label class=" control-label col-md-3">Last Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="lastName">
+                </div>
+                <span class="text-danger" *ngIf="lastName.invalid && formDir.submitted">
+                    Last Name is required.
+                </span>
+            </div>
+            <div class="form-group row">
+                <label class=" control-label col-md-3"> Father Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="fatherName">
+                </div>
+                <span class="text-danger" *ngIf="fatherName.invalid && formDir.submitted">
+                    Father Name is required.
+                </span>
+            </div>
 
-        <div class="form-group row">
-            <label class=" control-label col-md-3">Contact No</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="contactNo">
+            <div class="form-group row">
+                <label class=" control-label col-md-3"> Mother Name</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="motherName">
+                </div>
+                <span class="text-danger" *ngIf="motherName.invalid && formDir.submitted">
+                    Mother Name is required.
+                </span>
             </div>
-            <span class="text-danger" *ngIf="contactNo.invalid && formDir.submitted">
-                Contact No is required.
-            </span>
-        </div>
-    
-    </div>
 
-    <div class="col-md-6 form-group">
-        <div class="form-group row">
-            <label class=" control-label col-md-3">Email</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="email">
+            <div class="form-group row">
+                <label class=" control-label col-md-3">Contact No</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="contactNo">
+                </div>
+                <span class="text-danger" *ngIf="contactNo.invalid && formDir.submitted">
+                    Contact No is required.
+                </span>
             </div>
-            <span class="text-danger" *ngIf="email.invalid && formDir.submitted">
-                Email
-            </span>
-        </div>
-        <div class="form-group row">
-            <label class="control-label col-md-3" for="gender">Gender</label>
-            <div class="col-md-6">
-                <select class="form-control" data-val="true" formControlName="gender">
-                    <option value="">-- Select Gender --</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-            <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
-                Gender is required
-            </span>
-        </div>
-        <div class="form-group row">
-            <label class="control-label col-md-3" for="department">Department</label>
-            <div class="col-md-6">
-                <select class="form-control" data-val="true" formControlName="department">
-                    <option value="">-- Select Gender --</option>
-                    <option value="a">CSE</option>
-                    <option value="b">EEE</option>
-                </select>
-            </div>
-            <span class="text-danger" *ngIf="department.invalid && formDir.submitted">
-                Department is required
-            </span>
-        </div>
-        
-        <div class="form-group row">
-            <label class="control-label col-md-3" for="city">City</label>
-            <div class="col-md-6">
-                <input class="form-control" type="text" formControlName="city">
-            </div>
-            <span class="text-danger" *ngIf="city.invalid && formDir.submitted">
-                City is required
-            </span>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">Save</button>
-            <button class="btn" (click)="cancel()">Cancel</button>
+
         </div>
 
-    </div>
-</form>
+        <div class="col-md-6 form-group" style="background-color: #f2f2f2; border-radius: 5px; padding: 20px;">
+            <div class="form-group row">
+                <label class=" control-label col-md-3">Email</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="email">
+                </div>
+                <span class="text-danger" *ngIf="email.invalid && formDir.submitted">
+                    Email
+                </span>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="gender">Gender</label>
+                <div class="col-md-6">
+                    <select class="form-control" data-val="true" formControlName="gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
+                    Gender is required
+                </span>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="department">Department</label>
+                <div class="col-md-6">
+                    <select class="form-control" data-val="true" formControlName="department">
+                        <option value="">-- Select Gender --</option>
+                        <option value="a">CSE</option>
+                        <option value="b">EEE</option>
+                    </select>
+                </div>
+                <span class="text-danger" *ngIf="department.invalid && formDir.submitted">
+                    Department is required
+                </span>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="city">City</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" formControlName="city">
+                </div>
+                <span class="text-danger" *ngIf="city.invalid && formDir.submitted">
+                    City is required
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Save</button>
+                <button class="btn" (click)="cancel()">Cancel</button>
+            </div>
+
+
+        </div>
+    </form>
+</div>
