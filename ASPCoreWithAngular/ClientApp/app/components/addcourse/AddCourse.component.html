@@ -6,7 +6,7 @@
 
 
     <div class="form-group row">
-        <label class="control-label col-md-12" for="student">Course</label>
+        <label class="control-label col-md-12" for="student">Student Name</label>
         <div class="col-md-4">
             <select class="form-control" data-val="true" formControlName="student">
                 <option value="0">--All--</option>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-group row">
-        <label class="control-label col-md-12" for="course">Course</label>
+        <label class="control-label col-md-12" for="course">Course Name</label>
         <div class="col-md-4">
             <select class="form-control" data-val="true" formControlName="course">
                 <option value="0">--All--</option>
@@ -42,21 +42,27 @@
 
 
     <div class="form-group row">
-        <label class="control-label col-md-12" for="City">City</label>
+        <label class="control-label col-md-12" for="gender">Semester</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" formControlName="city">
+            <select class="form-control" data-val="true" formControlName="semester">
+                <option value="">-- Select semester --</option>
+                <option value="1">First Semester</option>
+                <option value="2">Second Semester</option>
+                <option value="3">Third Semester</option>
+                <option value="3">Fourth Semester</option>
+            </select>
         </div>
-        <span class="text-danger" *ngIf="city.invalid && formDir.submitted">
-            City is required
+        <span class="text-danger" *ngIf="semester.invalid && formDir.submitted">
+            Gender is required
         </span>
     </div>
     <div class="form-group row">
-        <label class=" control-label col-md-12">Name</label>
+        <label class=" control-label col-md-12">credit</label>
         <div class="col-md-4">
-            <input class="form-control" type="text" formControlName="name">
+            <input class="form-control" type="text" formControlName="credit">
         </div>
-        <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
-            Name is required.
+        <span class="text-danger" *ngIf="credit.invalid && formDir.submitted">
+            Credit is required.
         </span>
     </div>
 

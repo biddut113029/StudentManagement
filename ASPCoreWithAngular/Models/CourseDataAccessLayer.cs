@@ -56,10 +56,10 @@ namespace ASPCoreWithAngular.Models
                     SqlCommand cmd = new SqlCommand("spAddCourse", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Name", Course.Name);
-                    cmd.Parameters.AddWithValue("@Gender", Course.course);
-                    cmd.Parameters.AddWithValue("@Department", Course.student);
-                    cmd.Parameters.AddWithValue("@City", Course.City);
+                    cmd.Parameters.AddWithValue("@credit", Course.credit);
+                    cmd.Parameters.AddWithValue("@course", Course.course);
+                    cmd.Parameters.AddWithValue("@student", Course.student);
+                    cmd.Parameters.AddWithValue("@semester", Course.semester);
                     cmd.Parameters.AddWithValue("@CourseID", Course.CourseID);
                     cmd.Parameters.AddWithValue("@StudentID", Course.StudentID);
 
@@ -87,10 +87,10 @@ namespace ASPCoreWithAngular.Models
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@CrsId", Course.ID);
-                    cmd.Parameters.AddWithValue("@Name", Course.Name);
-                    cmd.Parameters.AddWithValue("@Gender", Course.course);
-                    cmd.Parameters.AddWithValue("@Department", Course.student);
-                    cmd.Parameters.AddWithValue("@City", Course.City);
+                    cmd.Parameters.AddWithValue("@credit", Course.credit);
+                    cmd.Parameters.AddWithValue("@course)", Course.course);
+                    cmd.Parameters.AddWithValue("@student", Course.student);
+                    cmd.Parameters.AddWithValue("@semester", Course.semester);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -122,10 +122,10 @@ namespace ASPCoreWithAngular.Models
                     while (rdr.Read())
                     {
                         Course.ID = Convert.ToInt32(rdr["CourseID"]);
-                        Course.Name = rdr["Name"].ToString();
-                        Course.course = rdr["Gender"].ToString();
-                        Course.student = rdr["Department"].ToString();
-                        Course.City = rdr["City"].ToString();
+                        Course.credit = rdr["credit"].ToString();
+                        Course.course = rdr["course"].ToString();
+                        Course.student = rdr["student"].ToString();
+                        Course.semester = rdr["semester"].ToString();
                     }
                 }
                 return Course;

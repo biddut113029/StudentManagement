@@ -44,10 +44,10 @@ export class createcourse implements OnInit {
    
         this.courseForm = this._fb.group({
             id: 0,
-            name: ['', [Validators.required]],
+            credit: ['', [Validators.required]],
             course: ['', [Validators.required]],
             student: ['', [Validators.required]],
-            city: ['', [Validators.required]]
+            semester: ['', [Validators.required]]
         })
     }
 
@@ -90,8 +90,8 @@ export class createcourse implements OnInit {
         this._router.navigate(['/fetch-student']);
     }
 
-    get name() { return this.courseForm.get('name'); }
+    get credit() { return this.courseForm.get('credit'); }
     get course() { return this.courseForm.get('course'); }
     get student() { return this.courseForm.get('student'); }
-    get city() { return this.courseForm.get('city'); }
+    get semester() { return this.courseForm.get('semester'); }
 }
