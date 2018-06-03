@@ -4,70 +4,74 @@
 
 <form [formGroup]="courseForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
+    <div class="col-md-6 form-group" style="background-color: #f2f2f2; border-radius: 5px; padding: 20px;">
 
-    <div class="form-group row">
-        <label class="control-label col-md-12" for="student">Student Name</label>
-        <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="student">
-                <option value="0">--All--</option>
-                <option *ngFor="let k of stdList" value={{k.id}}>
-                    {{k.name}}
-                </option>>
-            </select>
+        <div class="form-group row">
+            <label class="control-label col-md-6" for="student">Student Name</label>
+            <div class="col-md-6">
+                <select class="form-control" data-val="true" formControlName="student">
+                    <option value="0">--All--</option>
+                    <option *ngFor="let k of stdList" value={{k.id}}>
+                        {{k.name}}
+                    </option>>
+                </select>
 
 
+            </div>
+            <span class="text-danger" *ngIf="student.invalid && formDir.submitted">
+                departmentr is required
+            </span>
         </div>
-        <span class="text-danger" *ngIf="student.invalid && formDir.submitted">
-            departmentr is required
-        </span>
-    </div>
-
-    <div class="form-group row">
-        <label class="control-label col-md-12" for="course">Course Name</label>
-        <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="course">
-                <option value="0">--All--</option>
-                <option *ngFor="let k of nameList" value={{k.id}}>
-                    {{k.name}}
-                </option>>
-            </select>
 
 
+        <div class="form-group row">
+            <label class="control-label col-md-6" for="course">Course Name</label>
+            <div class="col-md-6">
+                <select class="form-control" data-val="true" formControlName="course">
+                    <option value="0">--All--</option>
+                    <option *ngFor="let k of nameList" value={{k.id}}>
+                        {{k.name}}
+                    </option>>
+                </select>
+
+
+            </div>
+            <span class="text-danger" *ngIf="course.invalid && formDir.submitted">
+                Gender is required
+            </span>
         </div>
-        <span class="text-danger" *ngIf="course.invalid && formDir.submitted">
-            Gender is required
-        </span>
-    </div>
 
 
 
-    <div class="form-group row">
-        <label class="control-label col-md-12" for="gender">Semester</label>
-        <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="semester">
-                <option value="">-- Select semester --</option>
-                <option value="1">First Semester</option>
-                <option value="2">Second Semester</option>
-                <option value="3">Third Semester</option>
-                <option value="3">Fourth Semester</option>
-            </select>
+        <div class="form-group row">
+            <label class="control-label col-md-6" for="gender">Semester</label>
+            <div class="col-md-6">
+                <select class="form-control" data-val="true" formControlName="semester">
+                    <option value="">-- Select semester --</option>
+                    <option value="1">First Semester</option>
+                    <option value="2">Second Semester</option>
+                    <option value="3">Third Semester</option>
+                    <option value="3">Fourth Semester</option>
+                </select>
+            </div>
+            <span class="text-danger" *ngIf="semester.invalid && formDir.submitted">
+                Gender is required
+            </span>
         </div>
-        <span class="text-danger" *ngIf="semester.invalid && formDir.submitted">
-            Gender is required
-        </span>
-    </div>
-    <div class="form-group row">
-        <label class=" control-label col-md-12">credit</label>
-        <div class="col-md-4">
-            <input class="form-control" type="text" formControlName="credit">
+        <div class="form-group row">
+            <label class=" control-label col-md-6">credit</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" formControlName="credit">
+            </div>
+            <span class="text-danger" *ngIf="credit.invalid && formDir.submitted">
+                Credit is required.
+            </span>
         </div>
-        <span class="text-danger" *ngIf="credit.invalid && formDir.submitted">
-            Credit is required.
-        </span>
-    </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-default">Save</button>
-        <button class="btn" (click)="cancel()">Cancel</button>
+        <div class="form-group">
+            <label class=" control-label col-md-6"></label>
+            <button type="submit" class="btn btn-default">Save</button>
+            <button class="btn btn-default"  (click)="cancel()">Cancel</button>
+        </div>
     </div>
 </form>

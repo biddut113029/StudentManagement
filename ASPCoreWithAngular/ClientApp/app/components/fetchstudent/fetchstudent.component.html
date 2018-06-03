@@ -4,12 +4,6 @@
 <p>
     <a [routerLink]="['/register-student']">Create New</a>
 </p>
-<select>
-    <option value="0">--All--</option>
-    <option *ngFor="let k of stdList" value={{k.id}}>
-        {{k.id}}
-    </option>
-</select>
 
 
   
@@ -21,17 +15,27 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Gender</th>
             <th>Department</th>
-            <th>City</th>
+            <th>Contact No</th>
+            <th>Email</th>
+
+            <th>Gender</th>
+            <th>Father Name</th>
+            <th>Mother Name</th>
+            <th>Address</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let std of stdList">
             <td>{{ std.id }}</td>
             <td>{{ std.name }}</td>
-            <td>{{ std.gender }}</td>
             <td>{{ std.department }}</td>
+            <td>{{ std.contactNo }}</td>
+            <td>{{ std.email}}</td>
+            <td>{{ std.gender }}</td>
+            <td>{{ std.fatherName }}</td>
+
+            <td>{{ std.motherName }}</td>
             <td>{{ std.city }}</td>
             <td>
             <td>
@@ -40,7 +44,7 @@
             </td>
         </tr>
     </tbody>
-
+  
 
 </table>
 
