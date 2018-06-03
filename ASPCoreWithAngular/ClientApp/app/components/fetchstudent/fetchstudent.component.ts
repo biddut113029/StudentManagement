@@ -34,10 +34,10 @@ export class FetchStudentComponent {
     constructor(public http: Http, private _router: Router, private _StudentService: StudentService) {
         this.getStudents();
     }
-    SetPage(page: any) {
+    SetPage(page: number) {
 
-        //this.activePage = page;
-        //this.getStudents();
+        this.activePage = page;
+        this.getStudents();
     }
     Next() {
         
