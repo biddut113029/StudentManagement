@@ -22,11 +22,13 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\addcourse\AddCourse.component.ts" />
+    <None Remove="ClientApp\app\components\fetchstudent\data-filter.pipe.ts" />
     <None Remove="ClientApp\app\Services\crsservice.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\addcourse\AddCourse.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\fetchstudent\data-filter.pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\crsservice.service.ts" />
   </ItemGroup>
 

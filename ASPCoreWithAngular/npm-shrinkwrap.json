@@ -241,6 +241,34 @@
         "lodash": "4.17.4"
       }
     },
+    "angular2-serverpagination-datatable": {
+      "version": "1.5.4",
+      "resolved": "https://registry.npmjs.org/angular2-serverpagination-datatable/-/angular2-serverpagination-datatable-1.5.4.tgz",
+      "integrity": "sha1-jQsLM57dqSmKuShre118zf/jr3Y=",
+      "requires": {
+        "@angular/common": "2.4.10",
+        "@angular/core": "2.4.10",
+        "@angular/platform-browser": "2.4.10",
+        "lodash": "4.17.4"
+      },
+      "dependencies": {
+        "@angular/common": {
+          "version": "2.4.10",
+          "resolved": "https://registry.npmjs.org/@angular/common/-/common-2.4.10.tgz",
+          "integrity": "sha1-o6aC0iKPow7CPdDrV8joh/uiaZc="
+        },
+        "@angular/core": {
+          "version": "2.4.10",
+          "resolved": "https://registry.npmjs.org/@angular/core/-/core-2.4.10.tgz",
+          "integrity": "sha1-C4MgplBlll2ZhkWx9c0892m0Qeo="
+        },
+        "@angular/platform-browser": {
+          "version": "2.4.10",
+          "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-2.4.10.tgz",
+          "integrity": "sha1-y/JWCBSPtP/vlsxQBbpdez4JOQY="
+        }
+      }
+    },
     "angular2-template-loader": {
       "version": "0.6.2",
       "resolved": "https://registry.npmjs.org/angular2-template-loader/-/angular2-template-loader-0.6.2.tgz",
