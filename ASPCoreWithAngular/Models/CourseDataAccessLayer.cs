@@ -9,7 +9,7 @@ namespace ASPCoreWithAngular.Models
 {
     public class CourseDataAccessLayer
     {
-        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myDB;Data Source=DESKTOP-7V61I4R";
+        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myDB;Data Source=DESKTOP-SDQAJLR";
 
         //To View all Courses details
         public IEnumerable<CourseName> GetAllCourses()
@@ -30,7 +30,7 @@ namespace ASPCoreWithAngular.Models
                     {
                         CourseName CourseName = new CourseName();
 
-                        CourseName.ID = Convert.ToInt32(rdr["ID"]);
+                        CourseName.ID = Convert.ToInt32(rdr["CourseID"]);
                         CourseName.Code = rdr["Code"].ToString();
                         CourseName.Name = rdr["Name"].ToString();
                         CourseName.Credit = rdr["Credit"].ToString();
@@ -55,13 +55,11 @@ namespace ASPCoreWithAngular.Models
                 {
                     SqlCommand cmd = new SqlCommand("spAddCourse", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@credit", Course.credit);
-                    cmd.Parameters.AddWithValue("@course", Course.course);
-                    cmd.Parameters.AddWithValue("@student", Course.student);
-                    cmd.Parameters.AddWithValue("@semester", Course.semester);
-                    cmd.Parameters.AddWithValue("@CourseID", Course.CourseID);
-                    cmd.Parameters.AddWithValue("@StudentID", Course.StudentID);
+                    //cmd.Parameters.AddWithValue("@ID", Course.ID);
+                    cmd.Parameters.AddWithValue("@Credit", Course.credit);
+                    cmd.Parameters.AddWithValue("@Semester", Course.semester);                
+                    cmd.Parameters.AddWithValue("@CourseID", Course.course);
+                    cmd.Parameters.AddWithValue("@StudentID", Course.student);
 
 
                     con.Open();
@@ -86,11 +84,11 @@ namespace ASPCoreWithAngular.Models
                     SqlCommand cmd = new SqlCommand("spUpdateCourse", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@CrsId", Course.ID);
-                    cmd.Parameters.AddWithValue("@credit", Course.credit);
-                    cmd.Parameters.AddWithValue("@course)", Course.course);
-                    cmd.Parameters.AddWithValue("@student", Course.student);
-                    cmd.Parameters.AddWithValue("@semester", Course.semester);
+                    cmd.Parameters.AddWithValue("@ID", Course.ID);
+                    cmd.Parameters.AddWithValue("@Credit", Course.credit);
+                    cmd.Parameters.AddWithValue("@Semester", Course.course);
+                    cmd.Parameters.AddWithValue("@CourseID", Course.student);
+                    cmd.Parameters.AddWithValue("@StudentID", Course.semester);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -113,7 +111,7 @@ namespace ASPCoreWithAngular.Models
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    string sqlQuery = "SELECT * FROM tblCourse WHERE CourseID= " + id;
+                    string sqlQuery = "SELECT * FROM tblCourse WHERE ID= " + id;
                     SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
                     con.Open();
@@ -122,10 +120,10 @@ namespace ASPCoreWithAngular.Models
                     while (rdr.Read())
                     {
                         Course.ID = Convert.ToInt32(rdr["CourseID"]);
-                        Course.credit = rdr["credit"].ToString();
-                        Course.course = rdr["course"].ToString();
-                        Course.student = rdr["student"].ToString();
-                        Course.semester = rdr["semester"].ToString();
+                        Course.credit = rdr["Credit"].ToString();
+                        Course.course = rdr["Semester"].ToString();
+                        Course.student = rdr["StudentId"].ToString();
+                        Course.semester = rdr["CourseID"].ToString();
                     }
                 }
                 return Course;
@@ -146,7 +144,7 @@ namespace ASPCoreWithAngular.Models
                     SqlCommand cmd = new SqlCommand("spDeleteCourse", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@CrsId", id);
+                    cmd.Parameters.AddWithValue("@ID", id);
 
                     con.Open();
                     cmd.ExecuteNonQuery();

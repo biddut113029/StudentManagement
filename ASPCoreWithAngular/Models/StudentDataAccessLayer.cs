@@ -9,7 +9,7 @@ namespace ASPCoreWithAngular.Models
 {
     public class StudentDataAccessLayer
     {
-        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myDB;Data Source=DESKTOP-7V61I4R";
+        string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=myDB;Data Source=DESKTOP-SDQAJLR";
 
         //To View all Students details
         public IEnumerable<Student> GetAllStudents()
