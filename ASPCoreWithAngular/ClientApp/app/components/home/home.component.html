@@ -1,21 +1,39 @@
 
-<ul>
-    <p>
-        <a [routerLink]="['/home']">Create New</a>
-    </p>
 
-    <p>
-        <a [routerLink]="['/fetch-studen']">Create New</a>
-    </p>
-</ul>
+<html>
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: DodgerBlue;
+            width: 500px;
+        }
 
-<ul>
-    <p>
-        <a [routerLink]="['/register-student']">Create New</a>
-    </p>
+            .flex-container > div {
+                background-color: #f1f1f1;
+                width: 220px;
+                margin: 10px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 20px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Student Management System</h1>
 
-    <p>
-        <a [routerLink]="['/createcourse']">Create New</a>
-    </p>
-</ul>
+    <div class="flex-container">
+        <div><a [routerLink]="['/home']">Home</a></div>
+        <div><a [routerLink]="['/fetch-student']">All Students</a></div>
+
+    </div>
+    <div class="flex-container">
+        <div> <a [routerLink]="['/register-student']">Create New</a></div>
+        <div> <a [routerLink]="['/createcourse']">Assign Course</a></div>
+
+    </div>
    
+
+</body>
+</html>
